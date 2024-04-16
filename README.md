@@ -78,6 +78,14 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-1
 
+## 1. Pada observer patterns, subscriber adalah intercafe (salah satu trait rust untuk mengaplikasikan implementasi konkret) yang membuat kita lebih fleksibel dan memudahkan kita juga dalam mengembangkan kode. Hal itu saya sebutkan karena kita dapat menambah jenis subscriber baru tanpa mengubah kode yang ada. Pada modul ini, bambangshop memiliki kemungkinan menambah jenis subscriber sehingga lebih baik jika kita mendefinisikan subscriber sebagai trait.
+
+
+## 2. Pada modul ini, dashmap lebih cocok untuk menangani id uni program dan url subscriber daripada vec. Mengapa? hal ini dikarenakan DashMap bersifat concurrent yang bisa mencari value dengan key sehingga memungkinkan program bekerja dengan kompleksitas O(1). Sedangkan vec adalah array yang bisa terus bertumbuh dan kurang efisien karena dapat menghasilkan kompleklsitas O(N).
+
+
+## 3. Singleton pattern memastikan bahwa sebuah kelas hanya memiliki satu instance dan menyediakan akses ke instance tersebut secara global. Karena itu, ketika hal ini diterapkan akan membuat variable subscriber dipastikan hanya ada satu untuk seluruh aplikasi. Tetapi, pada Rust kita juga memerlukan sinkronisasi akses untuk mencegah isu-isu concurrency. Disitulah dashmap yang bersifat concurrent digunakan agar memungkinkan beberapa thread melakukan sesuatu seperti baca tulis ke Map yang ada dengan aman. Penggunaan dashmap pada modul ini sudah tepat karena telah mengamankan akses threadnya (thread safe).
+
 #### Reflection Publisher-2
 
 #### Reflection Publisher-3
